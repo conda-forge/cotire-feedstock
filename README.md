@@ -11,6 +11,18 @@ Summary: A CMake module that speeds up the build process of CMake based build.
 
 
 
+Current build status
+====================
+
+Linux: [![Circle CI](https://circleci.com/gh/conda-forge/cotire-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/cotire-feedstock)
+OSX: [![TravisCI](https://travis-ci.org/conda-forge/cotire-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/cotire-feedstock)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/cotire-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/cotire-feedstock/branch/master)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/cotire/badges/version.svg)](https://anaconda.org/conda-forge/cotire)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/cotire/badges/downloads.svg)](https://anaconda.org/conda-forge/cotire)
+
 Installing cotire
 =================
 
@@ -31,7 +43,6 @@ It is possible to list all of the versions of `cotire` available on your platfor
 ```
 conda search cotire --channel conda-forge
 ```
-
 
 
 About conda-forge
@@ -67,18 +78,6 @@ Terminology
 
 **conda-forge** - the place where the feedstock and smithy live and work to
                   produce the finished article (built conda distributions)
-
-Current build status
-====================
-
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/cotire-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/cotire-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/cotire-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/cotire-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/cotire-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/cotire-feedstock/branch/master)
-
-Current release info
-====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/cotire/badges/version.svg)](https://anaconda.org/conda-forge/cotire)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/cotire/badges/downloads.svg)](https://anaconda.org/conda-forge/cotire)
 
 
 Updating cotire-feedstock
