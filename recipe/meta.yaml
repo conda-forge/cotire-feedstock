@@ -1,5 +1,5 @@
-{% set version = "1.7.8" %}
-{% set sha256 = "84be4ff66248ba629666bed5c2b76b869db7f04425e44bba3555bbc25d5701c1" %}
+{% set version = "1.8.0" %}
+{% set sha256 = "200d25cb7f858daedaf9822825da32c24c3bdfa1cbc1e8d79f18aa5677425ed8" %}
 
 package:
   name: cotire
