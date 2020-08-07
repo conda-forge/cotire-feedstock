@@ -1,5 +1,5 @@
-{% set version = "1.7.8" %}
-{% set sha256 = "84be4ff66248ba629666bed5c2b76b869db7f04425e44bba3555bbc25d5701c1" %}
+{% set version = "1.8.1" %}
+{% set sha256 = "79b976b9e822941e3e2a3d82881c5fbcfbc971156640cb745e74f845e764f192" %}
 
 package:
   name: cotire
@@ -61,6 +61,7 @@ test:
 about:
   home: https://github.com/sakra/cotire
   license: MIT
+  license_file: license
   summary: A CMake module that speeds up the build process of CMake based build.
 
 extra:
