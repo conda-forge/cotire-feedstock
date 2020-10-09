@@ -32,6 +32,8 @@ requirements:
     - cmake
 
 test:
+  files:
+    - src
   requires:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
