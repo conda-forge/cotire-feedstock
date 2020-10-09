@@ -44,8 +44,7 @@ test:
 
 
     # Use cotire in a simple test to make sure it works.
-    - cd "${SRC_DIR}/src" && mkdir build && cd build                                  # [unix]
-    - cd "%SRC_DIR%/src" && mkdir build && cd build                                   # [win]
+    - cd src && mkdir build && cd build
     - cmake -G "Unix Makefiles" ..                                                    # [unix]
     # Cannot find `cl` on Windows during tests.
     # Please see this issue.
