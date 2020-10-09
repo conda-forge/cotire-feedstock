@@ -32,6 +32,9 @@ requirements:
     - cmake
 
 test:
+  requires:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
   commands:
     # Verify that the cotire CMake file is in place.
     - test -f "${PREFIX}"/share/cmake*/Modules/cotire.cmake                            # [unix]
