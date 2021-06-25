@@ -61,6 +61,7 @@ test:
 about:
   home: https://github.com/sakra/cotire
   license: MIT
+  license_file: license
   summary: A CMake module that speeds up the build process of CMake based build.
 
 extra:
