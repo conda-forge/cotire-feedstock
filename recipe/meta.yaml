@@ -34,8 +34,8 @@ test:
   source_files:
     - cotire_src
   requires:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}                                                                         # [unix]
+    - {{ compiler('cxx') }}                                                                       # [unix]
     - cmake
     - make                                                                                        # [unix]
   commands:
