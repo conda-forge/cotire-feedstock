@@ -23,6 +23,8 @@ build:
     - cd %LIBRARY_PREFIX%\\share\\cmake*\\Modules && copy %SRC_DIR%\\cotire_src\\CMake\\cotire.cmake .  # [win]
 
 requirements:
+  build:
+    - {{ compiler('c') }}
   host:
     - cmake
   run:
