@@ -6,7 +6,6 @@ package:
   version: {{ version }}
 
 source:
-  fn: cotire-{{ version }}.tar.gz
   url: https://github.com/sakra/cotire/archive/cotire-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
@@ -15,12 +14,14 @@ source:
     # https://github.com/sakra/cotire/pull/100
     #
     - PR_100.diff
+  folder:
+    - cotire_src
 
 build:
   number: 0
   script:
-    - cp "${SRC_DIR}/CMake/cotire.cmake" "${PREFIX}"/share/cmake*/Modules                   # [unix]
-    - cd %LIBRARY_PREFIX%\\share\\cmake*\\Modules && copy %SRC_DIR%\\CMake\\cotire.cmake .  # [win]
+    - cp "${SRC_DIR}/cotire_src/CMake/cotire.cmake" "${PREFIX}"/share/cmake*/Modules                    # [unix]
+    - cd %LIBRARY_PREFIX%\\share\\cmake*\\Modules && copy %SRC_DIR%\\cotire_src\\CMake\\cotire.cmake .  # [win]
 
 requirements:
   host:
@@ -30,7 +31,7 @@ requirements:
 
 test:
   files:
-    - src
+    - cotire_src
   requires:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
