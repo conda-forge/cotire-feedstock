@@ -39,21 +39,14 @@ test:
     - make
   commands:
     # Verify that the cotire CMake file is in place.
-    - test -f "${PREFIX}"/share/cmake*/Modules/cotire.cmake                            # [unix]
-    - cd %LIBRARY_PREFIX%\\share\\cmake*\\Modules && if not exist cotire.cmake exit 1  # [win]
-
+    - test -f "${PREFIX}"/share/cmake*/Modules/cotire.cmake                                       # [unix]
+    - pushd %LIBRARY_PREFIX%\\share\\cmake*\\Modules && if not exist cotire.cmake exit 1 && popd  # [win]
 
     # Use cotire in a simple test to make sure it works.
-    - cd "${SRC_DIR}/src" && mkdir build && cd build                                  # [unix]
-    - cd "%SRC_DIR%/src" && mkdir build && cd build                                   # [win]
-    - cmake -G "Unix Makefiles" ..                                                    # [unix]
-    # Cannot find `cl` on Windows during tests.
-    # Please see this issue.
-    #
-    # https://github.com/conda/conda-build/issues/1059
-    #
-    #- cmake -G "NMake Makefiles" ..                                                  # [win]
-    - cmake --build .                                                                 # [unix]
+    - cd cotire_src && cd src && mkdir build && cd build
+    - cmake -G "Unix Makefiles" ..                                                                # [unix]
+    - cmake -G "NMake Makefiles" ..                                                               # [win]
+    - cmake --build .                                                                             # [unix]
 
 
 about:
