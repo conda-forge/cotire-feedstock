@@ -26,9 +26,8 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - cmake
-    - make
   host:
+    - cmake
   run:
     - cmake
 
