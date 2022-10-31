@@ -29,7 +29,7 @@ requirements:
     - cmake
 
 test:
-  files:
+  source_files:
     - cotire_src
   requires:
     - {{ compiler('c') }}
