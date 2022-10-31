@@ -45,7 +45,7 @@ test:
     - cd cotire_src && cd src && mkdir build && cd build
     - cmake -G "Unix Makefiles" ..                                                                # [unix]
     - cmake -G "NMake Makefiles" ..                                                               # [win]
-    - cmake --build .                                                                             # [unix]
+    - cmake --build .
 
 
 about:
