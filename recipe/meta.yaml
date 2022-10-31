@@ -46,6 +46,7 @@ test:
     # Use cotire in a simple test to make sure it works.
     - set "CMAKE_GENERATOR_PLATFORM="                                                             # [win]
     - set "CMAKE_GENERATOR_TOOLSET="                                                              # [win]
+    - dir                                                                                         # [win]
     - cd cotire_src && cd src && mkdir build && cd build
     - cmake -G "Unix Makefiles" ..                                                                # [unix]
     - cmake -G "NMake Makefiles" ..                                                               # [win]
