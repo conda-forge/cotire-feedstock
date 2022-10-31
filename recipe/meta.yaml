@@ -19,8 +19,10 @@ source:
 build:
   number: 0
   script:
-    - cp "${SRC_DIR}/cotire_src/CMake/cotire.cmake" "${PREFIX}"/share/cmake*/Modules                    # [unix]
-    - cd %LIBRARY_PREFIX%\\share\\cmake*\\Modules && copy %SRC_DIR%\\cotire_src\\CMake\\cotire.cmake .  # [win]
+    - cd %LIBRARY_PREFIX%\\share\\cmake*\\Modules        # [win]
+    - cd "${PREFIX}"/share/cmake*/Modules                # [unix]
+    - cp "${SRC_DIR}/cotire_src/CMake/cotire.cmake" .    # [unix]
+    - copy %SRC_DIR%\\cotire_src\\CMake\\cotire.cmake .  # [win]
 
 requirements:
   build:
@@ -34,23 +36,24 @@ test:
   source_files:
     - cotire_src
   requires:
-    - {{ compiler('c') }}                                                                         # [unix]
-    - {{ compiler('cxx') }}                                                                       # [unix]
+    - {{ compiler('c') }}                                 # [unix]
+    - {{ compiler('cxx') }}                               # [unix]
     - cmake
-    - make                                                                                        # [unix]
+    - make                                                # [unix]
   commands:
     # Verify that the cotire CMake file is in place.
-    - dir                                                                                         # [win]
-    - test -f "${PREFIX}"/share/cmake*/Modules/cotire.cmake                                       # [unix]
-    - pushd %LIBRARY_PREFIX%\\share\\cmake*\\Modules && if not exist cotire.cmake exit 1 && popd  # [win]
+    - pushd "${PREFIX}"/share/cmake*/Modules/             # [unix]
+    - pushd %LIBRARY_PREFIX%\\share\\cmake*\\Modules      # [win]
+    - test -f cotire.cmake                                # [unix]
+    - if not exist cotire.cmake exit 1                    # [win]
+    - popd
 
     # Use cotire in a simple test to make sure it works.
-    - set "CMAKE_GENERATOR_PLATFORM="                                                             # [win]
-    - set "CMAKE_GENERATOR_TOOLSET="                                                              # [win]
-    - dir                                                                                         # [win]
-    - cd cotire_src && cd src && mkdir build && cd build
-    - cmake -G "Unix Makefiles" ..                                                                # [unix]
-    - cmake -G "NMake Makefiles" ..                                                               # [win]
+    - set "CMAKE_GENERATOR_PLATFORM="                     # [win]
+    - set "CMAKE_GENERATOR_TOOLSET="                      # [win]
+    - cd cotire_src && cd src && mkdir build && cd build  #
+    - cmake -G "Unix Makefiles" ..                        # [unix]
+    - cmake -G "NMake Makefiles" ..                       # [win]
     - cmake --build .
 
 
