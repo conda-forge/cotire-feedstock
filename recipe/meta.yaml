@@ -17,7 +17,7 @@ source:
   folder: cotire_src
 
 build:
-  number: 0
+  number: 1
   script:
     - cd "${PREFIX}"/share/cmake*/Modules                # [unix]
     - cd %LIBRARY_PREFIX%\\share\\cmake*\\Modules        # [win]
