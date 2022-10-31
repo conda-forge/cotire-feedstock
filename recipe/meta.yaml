@@ -14,8 +14,7 @@ source:
     # https://github.com/sakra/cotire/pull/100
     #
     - PR_100.diff
-  folder:
-    - cotire_src
+  folder: cotire_src
 
 build:
   number: 0
