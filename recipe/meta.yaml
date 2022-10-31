@@ -40,6 +40,7 @@ test:
     - make                                                                                        # [unix]
   commands:
     # Verify that the cotire CMake file is in place.
+    - dir                                                                                         # [win]
     - test -f "${PREFIX}"/share/cmake*/Modules/cotire.cmake                                       # [unix]
     - pushd %LIBRARY_PREFIX%\\share\\cmake*\\Modules && if not exist cotire.cmake exit 1 && popd  # [win]
 
