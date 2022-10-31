@@ -35,7 +35,7 @@ test:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
-    - make
+    - make                                                                                        # [unix]
   commands:
     # Verify that the cotire CMake file is in place.
     - test -f "${PREFIX}"/share/cmake*/Modules/cotire.cmake                                       # [unix]
