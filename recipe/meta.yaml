@@ -18,27 +18,28 @@ source:
 
 build:
   number: 0
-  features:
-    - vc9   # [win and py27]
-    - vc10  # [win and py34]
-    - vc14  # [win and py35]
   script:
     - cp "${SRC_DIR}/CMake/cotire.cmake" "${PREFIX}"/share/cmake*/Modules                   # [unix]
     - cd %LIBRARY_PREFIX%\\share\\cmake*\\Modules && copy %SRC_DIR%\\CMake\\cotire.cmake .  # [win]
 
 requirements:
   build:
-    - python  # [win]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - cmake
-
+    - make
+  host:
   run:
     - cmake
 
 test:
+  files:
+    - src
   requires:
-     - python 2.7.*  # [win and py27]
-     - python 3.4.*  # [win and py34]
-     - python 3.5.*  # [win and py35]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
+    - make
   commands:
     # Verify that the cotire CMake file is in place.
     - test -f "${PREFIX}"/share/cmake*/Modules/cotire.cmake                            # [unix]
