@@ -17,16 +17,17 @@ source:
   folder: cotire_src
 
 build:
-  number: 0
+  number: 1
   script:
-    - cd %LIBRARY_PREFIX%\\share\\cmake*\\Modules        # [win]
     - cd "${PREFIX}"/share/cmake*/Modules                # [unix]
+    - cd %LIBRARY_PREFIX%\\share\\cmake*\\Modules        # [win]
     - cp "${SRC_DIR}/cotire_src/CMake/cotire.cmake" .    # [unix]
     - copy %SRC_DIR%\\cotire_src\\CMake\\cotire.cmake .  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
   host:
     - cmake
   run:
@@ -49,9 +50,7 @@ test:
     - popd
 
     # Use cotire in a simple test to make sure it works.
-    - set "CMAKE_GENERATOR_PLATFORM="                     # [win]
-    - set "CMAKE_GENERATOR_TOOLSET="                      # [win]
-    - cd cotire_src && cd src && mkdir build && cd build  #
+    - cd cotire_src && cd src && mkdir build && cd build
     - cmake -G "Unix Makefiles" ..                        # [unix]
     - cmake -G "NMake Makefiles" ..                       # [win]
     - cmake --build .
